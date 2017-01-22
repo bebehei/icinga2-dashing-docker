@@ -1,0 +1,19 @@
+#!/bin/bash
+
+cd /usr/local/share/dashing-icinga2
+
+cat > config/icinga2.json <<-END
+{
+  "icinga2": {
+    "api": {
+      "host": "$ICINGA2_DASHING_API_HOST",
+      "port": $ICINGA2_DASHING_API_PORT,
+      "user": "$ICINGA2_DASHING_API_USER",
+      "password": "$ICINGA2_DASHING_API_PASS"
+
+    }
+  }
+}
+END
+
+dashing start
